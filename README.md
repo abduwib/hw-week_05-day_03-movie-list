@@ -1,68 +1,182 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Movie List
 
-In the project directory, you can run:
+![](https://media.giphy.com/media/Ty6dsAaERhyWA/giphy.gif)
 
-### `npm start`
+In class, we've built a React app that displays a list of movies and their titles, rating, description, and poster. It's time now to take this even further! 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+your mission should you choose to accept it: using your code from class as starter code:
+- Display the movie's director
+- Create a `<Cast />` component to display a movie's cast list including their name and role
+- Use the following data object to complete your mission
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```js
+const movies = [
+  {
+    id: 1,
+    title: "2001: A Space Odyssey",
+    rating: "G",
+    description: "After discovering a mysterious artifact buried beneath the lunar surface, mankind sets off on a quest to find its origins with help from intelligent supercomputer HAL 9000.",
+    poster: "https://m.media-amazon.com/images/M/MV5BMmNlYzRiNDctZWNhMi00MzI4LThkZTctMTUzMmZkMmFmNThmXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX182_CR0,0,182,268_AL_.jpg",
+    director: "Stanley Kubrick",
+    cast: [
+      {
+        name: "Keir Dullea",
+        role: "Dr. Dave Bowman"
+      },
+      {
+        name: "Gary Lockwood",
+        role: "Dr. Frank Poole"
+      },
+      {
+        name: "William Sylvester",
+        role: "Dr. Heywood R. Floyd"
+      },
+    ]
+  },
+  {
+    id: 2,
+    title: "Arrival",
+    rating: "PG-13",
+    description: "A linguist is recruited by the military to communicate with alien lifeforms after twelve mysterious spacecrafts land around the world.",
+    poster: "https://m.media-amazon.com/images/M/MV5BMTExMzU0ODcxNDheQTJeQWpwZ15BbWU4MDE1OTI4MzAy._V1_UX182_CR0,0,182,268_AL_.jpg",
+    director: "Denis Villeneuve",
+    cast: [
+      {
+        name: "Amy Adams",
+        role: "Louise Banks"
+      },
+      {
+        name: "Jeremy Renner",
+        role: "Ian Donnelly"
+      },
+    ]
+  },
+  {
+    id: 3,
+    title: "Interstellar",
+    rating: "PG-13",
+    description: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    poster: "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg",
+    director: "Christopher Nolan",
+    cast: [
+      {
+        name: "Matthew McConaughey",
+        role: "Cooper"
+      },
+      {
+        name: "Anne Hathaway",
+        role: "Brand"
+      },
+      {
+        name: "Jessica Chastain",
+        role: "Murph"
+      },
+    ]
+  },
+  {
+    id: 4,
+    title: "Kingdom of Heaven",
+    rating: "R",
+    description: "Balian of Ibelin travels to Jerusalem during the Crusades of the 12th century, and there he finds himself as the defender of the city and its people.",
+    poster: "https://m.media-amazon.com/images/M/MV5BMjE2MTIwNjg0MV5BMl5BanBnXkFtZTcwNjAxODIzMw@@._V1_UX182_CR0,0,182,268_AL_.jpg",
+    director: "Ridley Scott",
+    cast: [
+      {
+        name: "Orlando Bloom",
+        role: "Balian de Ibelin"
+      },
+      {
+        name: "Liam Neeson",
+        role: "Godfrey de Ibelin"
+      },
+    ]
+  },
+  {
+    id: 5,
+    title: "The Hitchhiker's Guide to the Galaxy",
+    rating: "PG",
+    description: "Mere seconds before the Earth is to be demolished by an alien construction crew, journeyman Arthur Dent is swept off the planet by his friend Ford Prefect, a researcher penning a new edition of \"The Hitchhiker's Guide to the Galaxy.\"",
+    poster: "https://m.media-amazon.com/images/M/MV5BZmU5MGU4MjctNjA2OC00N2FhLWFhNWQtMzQyMGI2ZmQ0Y2YyL2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_UX182_CR0,0,182,268_AL_.jpg",
+    director: "Garth Jennings",
+    cast: [
+      {
+        name: "Martin Freeman",
+        role: "Arthur Dent"
+      },
+      {
+        name: "Zooey Deschanel",
+        role: "Trillian"
+      },
+    ]
+  },
+  {
+    id: 6,
+    title: "Blade Runner",
+    rating: "R",
+    description: "A blade runner must pursue and terminate four replicants who stole a ship in space, and have returned to Earth to find their creator.",
+    poster: "https://m.media-amazon.com/images/M/MV5BNzQzMzJhZTEtOWM4NS00MTdhLTg0YjgtMjM4MDRkZjUwZDBlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg",
+    director: "Ridley Scott",
+    cast: [
+      {
+        name: "Harrison Ford",
+        role: "Rick Deckard"
+      },
+    ]
+  },
+  {
+    id: 7,
+    title: "A Beautiful Mind",
+    rating: "PG-13",
+    description: "After John Nash, a brilliant but asocial mathematician, accepts secret work in cryptography, his life takes a turn for the nightmarish.",
+    poster: "https://m.media-amazon.com/images/M/MV5BMzcwYWFkYzktZjAzNC00OGY1LWI4YTgtNzc5MzVjMDVmNjY0XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg",
+    director: "Ron Howard",
+    cast: [
+      {
+        name: "Russell Crowe",
+        role: "John Nash"
+      },
+      {
+        name: "Jennifer Connelly",
+        role: "Alicia Nash"
+      },
+    ]
+  },
+  {
+    id: 8,
+    title: "Sunshine",
+    rating: "R",
+    description: "A team of international astronauts are sent on a dangerous mission to reignite the dying Sun with a nuclear fission bomb in 2057.",
+    poster: "https://m.media-amazon.com/images/M/MV5BMTU5Nzg2OTk2NF5BMl5BanBnXkFtZTYwNTc1ODM3._V1_UX182_CR0,0,182,268_AL_.jpg",
+    director: "Danny Boyle",
+    cast: [
+      {
+        name: "Cillian Murphy",
+        role: "Robert Capa"
+      },
+      {
+        name: "Chris Evans",
+        role: "Mace"
+      },
+    ]
+  },
+  {
+    id: 9,
+    title: "Edge of Tomorrow",
+    rating: "PG-13",
+    description: "A soldier fighting aliens gets to relive the same day over and over again, the day restarting every time he dies.",
+    poster: "https://m.media-amazon.com/images/M/MV5BMTc5OTk4MTM3M15BMl5BanBnXkFtZTgwODcxNjg3MDE@._V1_UX182_CR0,0,182,268_AL_.jpg",
+    director: "Doug Liman",
+    cast: [
+      {
+        name: "Tom Cruise",
+        role: "Cage"
+      },
+      {
+        name: "Emily Blunt",
+        role: "Rita"
+      },
+    ]
+  },
+];
+```
